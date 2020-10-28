@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Login from "./pages/login";
+import Cadastro from "./pages/cadastro";
+ 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exact={true} component={App} />
+      <Route path="/login" exact={true} component={Login} />
+      <Route path="/cadastro" exact={true} component={Cadastro} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
