@@ -10,7 +10,6 @@ const MenuAdmin = () => {
                         <div className="background">
                             <img src="images/office.jpg" />
                         </div>
-                        <a href="#user"><img className="circle" src="images/yuna.jpg" /></a>
                         <a href="#name"><span className="white-text name">Felipe Botelho</span></a>
                         <a href="#email"><span className="white-text email">botelho422@gmail.com</span></a>
                     </div>

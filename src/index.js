@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Login from "./pages/login";
 import Cadastro from "./pages/cadastro";
+import Users from "./pages/users";
  
 ReactDOM.render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Route path="/" exact={true} component={App} />
       <Route path="/login" exact={true} component={Login} />
       <Route path="/cadastro" exact={true} component={Cadastro} />
+      <Route path="/users" exact={true} component={Users} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
