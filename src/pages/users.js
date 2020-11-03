@@ -11,11 +11,13 @@ class Users extends Component {
         this.state = {
             users: []
         }
+
+        this.deleteUser = this.deleteUser.bind(this);
     }
 
     componentDidMount(){
-        let elementFloat = document.querySelector(".btn-floating")
-        M.FloatingActionButton.init(elementFloat, {})
+        let elementFloat = document.querySelector(".btn-floating");
+        M.FloatingActionButton.init(elementFloat, {});
 
         let token = localStorage.getItem("token");
         if(token == null){
@@ -28,7 +30,10 @@ class Users extends Component {
                 let data = response.data;
                 if(data.status == 200){
                     this.setState({users: data.users});
-                } else {
+                } else if(data.status == 401){
+                    this.props.history.push('/');
+                } 
+                else {
                     this.toast(data.message);
                 }
             })
@@ -42,6 +47,34 @@ class Users extends Component {
         M.toast({html: msg});
     }
 
+
+    deleteUser(id) {
+        let token = localStorage.getItem("token");
+
+        if(token == null){
+            this.props.history.push('/');
+        } else {
+            api.delete("users/delete/"+id,{headers: {
+                "x-token-auth": token
+            }})
+            .then((response) => {
+                let data = response.data;
+                if(data.status == 200){
+                    this.toast(data.message);
+                    this.setState({users: this.state.users.filter((user) => {
+                        return user._id != id;
+                    })})
+                } else {
+                    this.toast(data.message);
+                }
+
+            })
+            .catch((erro) => {
+                console.log("erro ao excluir => ", erro);
+            })
+        }
+    }
+
     render(){
         return(
             <div className="container">
@@ -50,9 +83,11 @@ class Users extends Component {
                         <MenuAdmin />
                     </div>
                     <div className="col s9">
-                        <a className="btn-floating btn-large waves-effect waves-light red">
+                        <Link floating className="btn-floating btn-large waves-effect waves-light red"
+                            to="/cadastro"
+                        >
                             <i className="material-icons">add</i>
-                        </a>
+                        </Link>
                         <table className="responsive-table">
                             <thead>
                                 <tr>
@@ -69,8 +104,8 @@ class Users extends Component {
                                                 <td>{user.name}</td>
                                                 <td>{user.email}</td>
                                                 <td>
-                                                    <Link to="" className="waves-effect waves-light btn blue">Editar</Link>
-                                                    <button className="waves-effect waves-light btn red">
+                                                    <Link to={{pathname:`/cadastro/${user._id}`, query:{user: user} }} className="waves-effect waves-light btn blue">Editar</Link>
+                                                    <button className="waves-effect waves-light btn red" onClick={() => {this.deleteUser(user._id)}}>
                                                         Excluir
                                                     </button>
                                                 </td>

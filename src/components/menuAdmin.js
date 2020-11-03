@@ -18,11 +18,14 @@ const MenuAdmin = () => {
                     </div>
                 </li>
                 <li>
-                    <Link to="/listaPosts"><i className="material-icons">cloud</i>Posts</Link>
+                    <i className="material-icons">cloud</i>Bem vindo
                 </li>
                 <li><div className="divider"></div></li>
                 <li>
-                    <Link to="/usuarios" className="subheader">Usuários</Link>
+                    <Link to="/users" className="">Usuários</Link>
+                </li>
+                <li>
+                    <Link to="/listaPosts" className="">Posts</Link>
                 </li>
             </ul>
             <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>

@@ -12,7 +12,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" exact={true} component={App} />
       <Route path="/login" exact={true} component={Login} />
-      <Route path="/cadastro" exact={true} component={Cadastro} />
+      <Route path="/cadastro" exact={false} component={Cadastro} />
       <Route path="/users" exact={true} component={Users} />
     </Switch>
   </BrowserRouter>,
