@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Me from "../images/eu.jpeg";
+import Background from "../images/bg-code.png";
 
 const MenuAdmin = () => {
     return (
@@ -8,8 +10,9 @@ const MenuAdmin = () => {
                 <li>
                     <div className="user-view">
                         <div className="background">
-                            <img src="images/office.jpg" />
+                            <img src={Background} />
                         </div>
+                        <a href="#user"><img className="circle" width="10" src={Me} /></a>
                         <a href="#name"><span className="white-text name">Felipe Botelho</span></a>
                         <a href="#email"><span className="white-text email">botelho422@gmail.com</span></a>
                     </div>
