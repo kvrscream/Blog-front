@@ -106,7 +106,7 @@ class Cadastro extends Component{
                     </div>
                     <div className="col s9">
                         <div className="col s12">
-                            <h3>Cadastro de usuário</h3>
+                            <h3>Formulário de usuário</h3>
                         </div>
                         <form className="col s8">
                             <div className="input-field col s12">

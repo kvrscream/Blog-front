@@ -6,6 +6,8 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Login from "./pages/login";
 import Cadastro from "./pages/cadastro";
 import Users from "./pages/users";
+import ListaPosts from "./pages/listaPosts";
+import CreatePost from "./pages/createPost";
  
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +16,8 @@ ReactDOM.render(
       <Route path="/login" exact={true} component={Login} />
       <Route path="/cadastro" exact={false} component={Cadastro} />
       <Route path="/users" exact={true} component={Users} />
+      <Route path="/listaPosts" exact={true} component={ListaPosts} />
+      <Route path="/createPost" exact={false} component={CreatePost} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
